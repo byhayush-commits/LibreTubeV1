@@ -37,6 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu"
         android:background="@color/ayu_ink"
+        app:backgroundTint="@color/ayu_ink"
         app:itemActiveIndicatorStyle="@style/Ayu.NavIndicator"
         app:itemIconTint="@color/ayu_nav_item"
         app:itemTextColor="@color/ayu_nav_item"
