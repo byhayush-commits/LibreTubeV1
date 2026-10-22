@@ -41,6 +41,8 @@
         <item name="colorSurfaceInverse">@color/ayu_bone</item>
         <item name="colorOnSurfaceInverse">@color/ayu_ink</item>
         <item name="colorPrimaryInverse">@color/ayu_red</item>
+        <!-- no red tint on elevated surfaces (nav bar, cards, dialogs) -->
+        <item name="colorSurfaceTint">@color/ayu_ink</item>
 
         <item name="textAppearanceDisplayLarge">@style/Ayu.Text.DisplayLarge</item>
         <item name="textAppearanceDisplayMedium">@style/Ayu.Text.DisplayMedium</item>
@@ -60,27 +62,27 @@
     </style>
 
     <style name="Ayu.Text.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
-        <item name="android:fontFamily">@font/child_hood</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="Ayu.Text.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
-        <item name="android:fontFamily">@font/child_hood</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="Ayu.Text.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
-        <item name="android:fontFamily">@font/child_hood</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="Ayu.Text.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
-        <item name="android:fontFamily">@font/child_hood</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="Ayu.Text.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
-        <item name="android:fontFamily">@font/child_hood</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="Ayu.Text.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
-        <item name="android:fontFamily">@font/child_hood</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="Ayu.Text.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
@@ -120,9 +122,14 @@
     </style>
 
     <style name="Ayu.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
-        <item name="android:fontFamily">@font/child_hood</item>
-        <item name="android:textSize">28sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/ayu_bone</item>
+    </style>
+
+    <style name="Ayu.CircleImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 
     <style name="Ayu.NavLabel" parent="TextAppearance.Material3.LabelMedium">
