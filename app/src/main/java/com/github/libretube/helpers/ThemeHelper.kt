@@ -6,7 +6,13 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Color
+import android.graphics.Typeface
+import android.text.SpannableStringBuilder
 import android.text.Spanned
+import android.text.TextPaint
+import android.text.style.ForegroundColorSpan
+import android.text.style.MetricAffectingSpan
+import androidx.core.content.res.ResourcesCompat
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.text.HtmlCompat
@@ -90,18 +96,35 @@ object ThemeHelper {
         MaterialColors.getColor(context, colorCode, Color.TRANSPARENT)
 
     /**
-     * Get the styled app name
+     * Get the styled app name: "ayu" in the text color, "tube" in the logo red, both in the
+     * wordmark font (res/font/wordmark.ttf)
      */
     fun getStyledAppName(context: Context): Spanned {
         val colorPrimary = getThemeColor(context, androidx.appcompat.R.attr.colorPrimaryDark)
-        val hexColor = "#%06X".format(0xFFFFFF and colorPrimary)
-        return "Ayu<span  style='color:$hexColor';>Tube</span>"
-            .parseAsHtml(HtmlCompat.FROM_HTML_MODE_COMPACT)
+        val name = SpannableStringBuilder("ayutube")
+        ResourcesCompat.getFont(context, R.font.wordmark)?.let {
+            name.setSpan(FontSpan(it), 0, name.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+        name.setSpan(ForegroundColorSpan(colorPrimary), 3, name.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        return name
     }
 
     fun isDarkMode(context: Context): Boolean {
         val darkModeFlag =
             context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         return darkModeFlag == Configuration.UI_MODE_NIGHT_YES
+    }
+}
+
+/**
+ * Applies a custom typeface to a span of text (TypefaceSpan(Typeface) needs API 28)
+ */
+private class FontSpan(private val typeface: Typeface) : MetricAffectingSpan() {
+    override fun updateDrawState(paint: TextPaint) {
+        paint.typeface = typeface
+    }
+
+    override fun updateMeasureState(paint: TextPaint) {
+        paint.typeface = typeface
     }
 }
