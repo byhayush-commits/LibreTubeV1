@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- AyuTube theme: fixed black / off-white / logo red, always dark -->
+    <style name="Theme.Ayu" parent="BaseTheme">
+        <item name="android:fontFamily">@font/roboto</item>
+
+        <item name="colorPrimary">@color/ayu_red</item>
+        <item name="colorPrimaryDark">@color/ayu_red</item>
+        <item name="colorOnPrimary">@color/ayu_ink</item>
+        <item name="colorPrimaryContainer">@color/ayu_red_container</item>
+        <item name="colorOnPrimaryContainer">@color/ayu_on_red_container</item>
+        <item name="colorSecondary">@color/ayu_stone</item>
+        <item name="colorOnSecondary">@color/ayu_ink</item>
+        <item name="colorSecondaryContainer">@color/ayu_surface_high</item>
+        <item name="colorOnSecondaryContainer">@color/ayu_bone</item>
+        <item name="colorTertiary">@color/ayu_stone</item>
+        <item name="colorOnTertiary">@color/ayu_ink</item>
+        <item name="colorTertiaryContainer">@color/ayu_surface_high</item>
+        <item name="colorOnTertiaryContainer">@color/ayu_bone</item>
+        <item name="colorError">@color/ayu_error</item>
+        <item name="colorOnError">@color/ayu_ink</item>
+        <item name="colorErrorContainer">@color/ayu_error_container</item>
+        <item name="colorOnErrorContainer">@color/ayu_on_error_container</item>
+
+        <item name="android:colorBackground">@color/ayu_ink</item>
+        <item name="colorOnBackground">@color/ayu_bone</item>
+        <item name="colorSurface">@color/ayu_ink</item>
+        <item name="colorOnSurface">@color/ayu_bone</item>
+        <item name="colorSurfaceVariant">@color/ayu_surface_high</item>
+        <item name="colorOnSurfaceVariant">@color/ayu_stone</item>
+        <item name="colorSurfaceDim">@color/ayu_ink</item>
+        <item name="colorSurfaceBright">@color/ayu_surface_highest</item>
+        <item name="colorSurfaceContainerLowest">@color/ayu_ink</item>
+        <item name="colorSurfaceContainerLow">@color/ayu_surface_low</item>
+        <item name="colorSurfaceContainer">@color/ayu_surface</item>
+        <item name="colorSurfaceContainerHigh">@color/ayu_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/ayu_surface_highest</item>
+        <item name="colorOutline">@color/ayu_outline</item>
+        <item name="colorOutlineVariant">@color/ayu_rule</item>
+        <item name="colorSurfaceInverse">@color/ayu_bone</item>
+        <item name="colorOnSurfaceInverse">@color/ayu_ink</item>
+        <item name="colorPrimaryInverse">@color/ayu_red</item>
+
+        <item name="textAppearanceDisplayLarge">@style/Ayu.Text.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/Ayu.Text.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/Ayu.Text.DisplaySmall</item>
+        <item name="textAppearanceHeadlineLarge">@style/Ayu.Text.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/Ayu.Text.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/Ayu.Text.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/Ayu.Text.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/Ayu.Text.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/Ayu.Text.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/Ayu.Text.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/Ayu.Text.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/Ayu.Text.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/Ayu.Text.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/Ayu.Text.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/Ayu.Text.LabelSmall</item>
+    </style>
+
+    <style name="Ayu.Text.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:fontFamily">@font/child_hood</item>
+    </style>
+
+    <style name="Ayu.Text.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:fontFamily">@font/child_hood</item>
+    </style>
+
+    <style name="Ayu.Text.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:fontFamily">@font/child_hood</item>
+    </style>
+
+    <style name="Ayu.Text.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:fontFamily">@font/child_hood</item>
+    </style>
+
+    <style name="Ayu.Text.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/child_hood</item>
+    </style>
+
+    <style name="Ayu.Text.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:fontFamily">@font/child_hood</item>
+    </style>
+
+    <style name="Ayu.Text.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Ayu.Text.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Ayu.Text.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Ayu.Text.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Ayu.Text.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Ayu.Text.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Ayu.Text.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Ayu.Text.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Ayu.Text.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Ayu.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/child_hood</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/ayu_bone</item>
+    </style>
+
+    <style name="Ayu.NavLabel" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="Ayu.NavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+
+</resources>

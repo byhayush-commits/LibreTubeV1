@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ayu_ink">#000000</color>
+    <color name="ayu_bone">#F2EFE8</color>
+    <color name="ayu_red">#FF2D4A</color>
+    <color name="ayu_red_container">#3A0F17</color>
+    <color name="ayu_on_red_container">#FFD9DE</color>
+    <color name="ayu_stone">#BDB9B0</color>
+    <color name="ayu_ash">#8A8780</color>
+    <color name="ayu_outline">#5A5853</color>
+    <color name="ayu_rule">#1E1D1B</color>
+    <color name="ayu_surface_low">#0A0A09</color>
+    <color name="ayu_surface">#111110</color>
+    <color name="ayu_surface_high">#1A1918</color>
+    <color name="ayu_surface_highest">#232220</color>
+    <color name="ayu_error">#FF6B6B</color>
+    <color name="ayu_error_container">#3A1215</color>
+    <color name="ayu_on_error_container">#FFDAD9</color>
+</resources>
