@@ -22,20 +22,8 @@ object ThemeHelper {
      * Set the theme, including accent color and night mode
      */
     fun updateTheme(activity: AppCompatActivity) {
-        var accentColor = PreferenceHelper.getString(PreferenceKeys.ACCENT_COLOR, "")
-        if (accentColor.isEmpty()) {
-            accentColor = if (DynamicColors.isDynamicColorAvailable()) "my" else "blue"
-            PreferenceHelper.putString(PreferenceKeys.ACCENT_COLOR, accentColor)
-        }
-
-        activity.setTheme(getTheme(accentColor))
-        if (accentColor == "my") DynamicColors.applyToActivityIfAvailable(activity)
-
-        val pureThemeEnabled = PreferenceHelper.getBoolean(
-            PreferenceKeys.PURE_THEME,
-            false
-        )
-        if (pureThemeEnabled) activity.theme.applyStyle(R.style.Pure, true)
+        // AyuTube uses one fixed theme (black, off-white, logo red); accent prefs are ignored
+        activity.setTheme(R.style.Theme_Ayu)
     }
 
     /**
@@ -63,13 +51,10 @@ object ThemeHelper {
     /**
      * set the theme mode (light, dark, auto)
      */
+    @Suppress("UNUSED_PARAMETER")
     fun getThemeMode(themeMode: String): Int {
-        return when (themeMode) {
-            "A" -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-            "L" -> AppCompatDelegate.MODE_NIGHT_NO
-            "D" -> AppCompatDelegate.MODE_NIGHT_YES
-            else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-        }
+        // AyuTube is dark-only
+        return AppCompatDelegate.MODE_NIGHT_YES
     }
 
     /**
@@ -110,7 +95,7 @@ object ThemeHelper {
     fun getStyledAppName(context: Context): Spanned {
         val colorPrimary = getThemeColor(context, androidx.appcompat.R.attr.colorPrimaryDark)
         val hexColor = "#%06X".format(0xFFFFFF and colorPrimary)
-        return "Libre<span  style='color:$hexColor';>Tube</span>"
+        return "Ayu<span  style='color:$hexColor';>Tube</span>"
             .parseAsHtml(HtmlCompat.FROM_HTML_MODE_COMPACT)
     }
 
