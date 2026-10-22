@@ -14,6 +14,7 @@ import com.github.libretube.api.MediaServiceRepository
 import com.github.libretube.api.TrendingCategory
 import com.github.libretube.api.obj.Playlists
 import com.github.libretube.api.obj.StreamItem
+import com.github.libretube.api.obj.Subscription
 import com.github.libretube.constants.PreferenceKeys
 import com.github.libretube.constants.PreferenceKeys.HOME_TAB_CONTENT
 import com.github.libretube.databinding.FragmentHomeBinding
@@ -23,6 +24,7 @@ import com.github.libretube.helpers.PreferenceHelper
 import com.github.libretube.ui.activities.SettingsActivity
 import com.github.libretube.ui.adapters.CarouselPlaylist
 import com.github.libretube.ui.adapters.CarouselPlaylistAdapter
+import com.github.libretube.ui.adapters.SubscriptionAvatarsAdapter
 import com.github.libretube.ui.adapters.VideoCardsAdapter
 import com.github.libretube.ui.models.HomeViewModel
 import com.github.libretube.ui.models.SubscriptionsViewModel
@@ -32,6 +34,9 @@ import com.google.android.material.carousel.CarouselSnapHelper
 import com.google.android.material.carousel.UncontainedCarouselStrategy
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -47,6 +52,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val watchingAdapter = VideoCardsAdapter(columnWidthDp = 250f)
     private val bookmarkAdapter = CarouselPlaylistAdapter(PlaylistType.PUBLIC)
     private val playlistAdapter = CarouselPlaylistAdapter(PlaylistType.PRIVATE)
+    private val subsAdapter = SubscriptionAvatarsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
@@ -76,6 +82,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         })
         binding.watchingRV.adapter = watchingAdapter
+        binding.subsRV.adapter = subsAdapter
+        binding.homeDate.text = LocalDate.now()
+            .format(DateTimeFormatter.ofPattern("EEEE, d MMMM", Locale.getDefault()))
 
         with(homeViewModel) {
             trending.observe(viewLifecycleOwner, ::showTrending)
@@ -85,6 +94,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             continueWatching.observe(viewLifecycleOwner, ::showContinueWatching)
             isLoading.observe(viewLifecycleOwner, ::updateLoading)
         }
+        subscriptionsViewModel.subscriptions.observe(viewLifecycleOwner, ::showSubscriptions)
 
         binding.featuredTV.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_subscriptionsFragment)
@@ -161,6 +171,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onResume() {
         super.onResume()
 
+        if (subscriptionsViewModel.subscriptions.value == null) {
+            subscriptionsViewModel.fetchSubscriptions(requireContext())
+        }
+
         // Avoid re-fetching when re-entering the screen if it was loaded successfully, except when
         // the value of trending region has changed
         val isTrendingRegionChanged = homeViewModel.trending.value?.let {
@@ -203,16 +217,30 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         )
 
         makeVisible(binding.trendingRV, binding.trendingTV)
-        trendingAdapter.submitList(trendingStreams.streams.take(10))
+        trendingAdapter.submitList(trendingStreams.streams.withoutLive().take(10))
     }
 
     private fun showFeed(streamItems: List<StreamItem>?) {
         if (streamItems == null) return
 
         makeVisible(binding.featuredRV, binding.featuredTV)
-        val feedVideos = streamItems.take(20)
+        val feedVideos = streamItems.withoutLive().take(20)
 
         feedAdapter.submitList(feedVideos)
+    }
+
+    private fun showSubscriptions(subscriptions: List<Subscription>?) {
+        if (subscriptions.isNullOrEmpty()) return
+
+        makeVisible(binding.subsTV, binding.subsRV)
+        subsAdapter.submitList(subscriptions.take(20))
+    }
+
+    /**
+     * Live streams and upcoming premieres are not shown on the home feed
+     */
+    private fun List<StreamItem>.withoutLive() = filterNot {
+        it.type != VideoCardsAdapter.CAUGHT_UP_STREAM_TYPE && (it.isLive || it.isUpcoming)
     }
 
     private fun showBookmarks(bookmarks: List<PlaylistBookmark>?) {
