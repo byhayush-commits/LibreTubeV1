@@ -26,6 +26,44 @@
                 android:orientation="vertical"
                 android:paddingBottom="10dp">
 
+                <TextView
+                    android:id="@+id/homeTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:paddingTop="4dp"
+                    android:text="@string/ayu_today"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/homeDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:paddingBottom="14dp"
+                    android:textColor="@color/ayu_ash"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/subsTV"
+                    style="@style/HomeCategoryTitle"
+                    android:text="@string/subscriptions"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/subsRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    android:paddingBottom="10dp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
                 <LinearLayout
                     android:id="@+id/featuredTV"
                     android:layout_width="match_parent"
