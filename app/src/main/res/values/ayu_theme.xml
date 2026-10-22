@@ -41,8 +41,6 @@
         <item name="colorSurfaceInverse">@color/ayu_bone</item>
         <item name="colorOnSurfaceInverse">@color/ayu_ink</item>
         <item name="colorPrimaryInverse">@color/ayu_red</item>
-        <!-- no red tint on elevated surfaces (nav bar, cards, dialogs) -->
-        <item name="colorSurfaceTint">@color/ayu_ink</item>
 
         <item name="textAppearanceDisplayLarge">@style/Ayu.Text.DisplayLarge</item>
         <item name="textAppearanceDisplayMedium">@style/Ayu.Text.DisplayMedium</item>
