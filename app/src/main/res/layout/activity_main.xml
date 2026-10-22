@@ -23,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/action_bar"
-            app:title="@string/app_name" />
+            app:title="@string/app_name"
+            app:titleTextAppearance="@style/Ayu.ToolbarTitle" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -35,7 +36,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu"
-        app:labelVisibilityMode="selected" />
+        android:background="@color/ayu_ink"
+        app:itemActiveIndicatorStyle="@style/Ayu.NavIndicator"
+        app:itemIconTint="@color/ayu_nav_item"
+        app:itemTextColor="@color/ayu_nav_item"
+        app:itemTextAppearanceActive="@style/Ayu.NavLabel"
+        app:itemTextAppearanceInactive="@style/Ayu.NavLabel"
+        app:labelVisibilityMode="labeled" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment"
